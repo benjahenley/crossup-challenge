@@ -40,17 +40,42 @@ Se utilizó **Redux** para gestionar el estado del carrito, optimizando la actua
 ### 🎨 Diseño y Animaciones
 **Tailwind CSS** se empleó para crear un diseño responsive, mientras que **Framer Motion** permitió animaciones fluidas dentro de los componentes.
 
+### 🎨 Eliminar controles de carrousel del popup en desktop
+Elimine en desktop el carrousel ya que no habia mas de 3 sugerencias por producto. Si el proyecto escalara y hubiesen mas opciones se mantendria el carrousel pero me adapte al proyecto.
+
+### 🎨 Prioricé el modo oscuro antes que las traducciones.
+Tuve una pequeña complicación integrando idiomas ya que next 15 introdujo cambios a la manera en que se toman los page parameters. al ver que me iba a complicar prioricé el desarrollo de otros componentes. Con mas tiempo lo hubiese hecho. Quería utilizar next 15 de todas formas.
+
+### 🎨 Deje atrás una animación para el checkbox para el producto agregado al carrito.
+Tuve una pequeña complicación haciendo una animación tipo slot que requería complejizar el estado de Redux de más, por ende elegí simplificar y continuar con otras cosas.
+
 ---
 
 ## 🎥 Ejemplos y Demostraciones
 
 Aquí puedes ver videos y capturas de pantalla que muestran el flujo de navegación y las interacciones en la aplicación.
 
+inicio/home con Carrousel de productos de tipo **Shooter**
+
+![Screenshot 2024-10-29 at 1 53 06 PM](https://github.com/user-attachments/assets/899703ae-fdb7-45fd-a602-9434a9b918f4)
+
+CART en modo oscuro:
+
+![Screenshot 2024-10-29 at 1 53 39 PM](https://github.com/user-attachments/assets/27102b0f-89a7-4c16-a69b-b67cbd633702)
+
+CART en modo light:
+
+![Screenshot 2024-10-29 at 1 54 15 PM](https://github.com/user-attachments/assets/3ee1bdb2-6cee-4d39-9a95-b38ad6aee53d)
+
+Agregá al carrito todos los productos que quieras:
+
+![Screenshot 2024-10-29 at 1 56 18 PM](https://github.com/user-attachments/assets/0cd151f4-e01d-4555-b2ce-103ce8591944)
+
 ---
 
 ## 🚀 Despliegue en Vercel
 
-El demo completo está disponible aquí: [soon]
+El demo completo está disponible aquí: [crossup-challenge-git-main-benjini123s-projects.vercel.app]
 
 ---
 
