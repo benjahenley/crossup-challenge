@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-import GradientButton from "./buttons/GradientButton";
+import GradientButton from "../buttons/GradientButton";
 import { openPopup } from "@/redux/slices/productPopupSlice";
 import useEmblaCarousel from "embla-carousel-react";
 import { Product } from "@/infrastructure/interfaces/product";
@@ -13,9 +13,9 @@ import {
   NextButton,
   PrevButton,
   usePrevNextButtons,
-} from "./embla/EmblaCarouselArrowButtons";
+} from "../embla/EmblaCarouselArrowButtons";
 import { OPTIONS } from "@/infrastructure/config/embla";
-import { PageTitle, ProductTitle } from "./Texts";
+import { PageTitle, ProductTitle } from "../Texts";
 
 const ProductCarousel: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);

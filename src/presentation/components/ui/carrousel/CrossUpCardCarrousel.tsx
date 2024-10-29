@@ -4,7 +4,7 @@ import {
   PrevButton,
   NextButton,
   usePrevNextButtons,
-} from "./EmblaCarouselArrowButtons";
+} from "../embla/EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import { Product } from "@/infrastructure/interfaces/product";
 import CrossUpCard from "../cards/CrossUpCard";
@@ -15,7 +15,7 @@ type PropType = {
   currentProduct: Product;
 };
 
-const EmblaCarousel: React.FC<PropType> = (props) => {
+const CrossUpCardCarousel: React.FC<PropType> = (props) => {
   const { products, options, currentProduct } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -52,4 +52,4 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   );
 };
 
-export default EmblaCarousel;
+export default CrossUpCardCarousel;

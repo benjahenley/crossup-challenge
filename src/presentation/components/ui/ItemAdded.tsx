@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { RootState } from "@/redux/store";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { ConfirmationText } from "./Texts";
 
 // const slotMachineVariants = {
 //   hidden: { y: -50, opacity: 0 },
@@ -47,9 +48,7 @@ const ItemAddedMessage = () => {
             className="text-green-500 dark:text-green-400"
             size={26}
           />
-          <h4 className="font-semibold lg:text-2xl text-gray-800 dark:text-gray-200">
-            Producto añadido al carrito
-          </h4>
+          <ConfirmationText>Producto añadido al carrito</ConfirmationText>
         </motion.div>
       </motion.div>
     </section>

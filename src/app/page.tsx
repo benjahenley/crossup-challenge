@@ -1,6 +1,6 @@
+import ProductCarousel from "@/presentation/components/ui/carrousel/ProductCarrousel";
 import CartPopup from "@/presentation/components/ui/CartPopup";
 import Navbar from "@/presentation/components/ui/navbar/page";
-import ProductCarousel from "@/presentation/components/ui/ProductCarrousel";
 
 export default async function Home() {
   return (

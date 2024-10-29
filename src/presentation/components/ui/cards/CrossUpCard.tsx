@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { addToCart } from "@/redux/slices/cartSlice";
 import { CgDanger } from "react-icons/cg";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 type Props = {
   product: Product;
@@ -22,10 +23,12 @@ function CrossUpCard({ product, currentProductName }: Props) {
 
   return (
     <div
+      onClick={() => dispatch(addToCart({ product }))}
       ref={cardRef}
-      className="relative border-4 border-[#1278ff] dark:border-[#4a90e2] rounded-3xl hover:scale-95 cursor-pointer dark:bg-gray-800 bg-white transition-all shadow-lg hover:shadow-xl">
+      className="group relative border-4 border-[#1278ff] dark:border-[#4a90e2] rounded-3xl hover:scale-95 cursor-pointer dark:bg-gray-800 bg-white transition-all shadow-lg hover:shadow-xl">
       <div className="p-3 w-full h-full">
         <div className="relative flex flex-col w-full items-center h-full justify-between gap-2">
+          {/* Etiqueta de Promoción */}
           {product.promotionalPrice && (
             <div className="absolute top-4 right-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 dark:from-purple-400 dark:via-indigo-500 dark:to-blue-700 bg-[length:100%_120%_200%] animate-gradient text-white text-xs font-bold px-2 py-1 transform rotate-45 translate-x-4 -translate-y-3 shadow-lg">
               {(
@@ -35,6 +38,17 @@ function CrossUpCard({ product, currentProductName }: Props) {
               % OFF
             </div>
           )}
+
+          {/* Simbolo Plus */}
+          <div className="absolute  text-black right-0 left-[-30px] top-[-30px] z-990 pointer-events-none">
+            <div className="w-fit h-fit bg-white group-hover:bg-gray-200 group-hover:scale-90 rounded-full pointer-events-auto cursor-pointer">
+              <AiOutlinePlusCircle
+                className="text-5xl"
+                onClick={() =>
+                  dispatch(addToCart({ product }))
+                }></AiOutlinePlusCircle>
+            </div>
+          </div>
 
           <div className="text-center text-white text-sm font-bold px-5 py-1 bg-[#1278ff] dark:bg-[#3a8bbf] rounded-lg w-full mx-auto">
             El combo perfecto
@@ -69,7 +83,6 @@ function CrossUpCard({ product, currentProductName }: Props) {
           </p>
 
           <GradientButton
-            onClick={() => dispatch(addToCart({ product }))}
             label="AGREGAR AL CARRITO"
             className="text-white text-sm font-bold px-5 py-1 bg-[#1278ff] dark:bg-[#3a8bbf] rounded-lg w-full mx-auto"
             disabled={availableStock <= 0 || false}

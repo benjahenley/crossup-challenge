@@ -9,12 +9,13 @@ import { IoArrowBackCircle } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import MainProduct from "./cards/MainProduct";
 import Checkout from "./Checkout";
-import EmblaCarousel from "./embla/EmblaCarousel";
+import EmblaCarousel from "./carrousel/CrossUpCardCarrousel";
 import { OPTIONS } from "@/infrastructure/config/embla";
 import ButtonPrimary from "./buttons/ButtonPrimary";
 import ButtonSecondary from "./buttons/ButtonSecondary";
 import { IoIosCloseCircle } from "react-icons/io";
 import ItemAddedMessage from "./ItemAdded";
+import { LineSeparator } from "./LineSeparator";
 
 const CartPopup: React.FC = () => {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ const CartPopup: React.FC = () => {
         <>
           <div className="bg-opacity-50 bg-black w-full fixed inset-0 h-full" />
           <motion.div
-            className="absolute top-5 left-0 right-0 bottom-2 flex items-center justify-center z-50 rounded-xl max-h-fit overflow-scroll"
+            className="absolute sm:left-5 sm:right-5 md:left-8 md:right-8 top-5 left-0 right-0 bottom-2 flex items-center justify-center z-50 rounded-xl max-h-fit overflow-scroll"
             initial={{ y: "100vh" }}
             animate={{ y: 0 }}
             exit={{ y: "100vh", opacity: 0 }}
@@ -87,13 +88,13 @@ const CartPopup: React.FC = () => {
               </button>
               <button
                 onClick={() => dispatch(closePopup())}
-                className="absolute top-4 left-4 lg:hidden text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
+                className="absolute top-4 left-4 md:hidden text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
                 <IoArrowBackCircle size={32} />
               </button>
               <section className="flex items-center flex-col overflow-hidden">
-                <div className="overflow-hidden w-full max-h-[200px] rounded-t-xl lg:hidden">
+                <div className="overflow-hidden w-full max-h-[200px] rounded-t-xl md:hidden">
                   <img
-                    src={mainProduct.images[0]}
+                    src={mainProduct.images[1]}
                     alt={mainProduct.name}
                     className="w-full h-auto max-h-lg"
                   />
@@ -102,8 +103,8 @@ const CartPopup: React.FC = () => {
               <ItemAddedMessage></ItemAddedMessage>
 
               <div className="flex flex-col">
-                <section className="w-full flex flex-col lg:flex-row px-3 gap-2">
-                  <div className="lg:w-1/2 flex flex-col gap-2 justify-between">
+                <section className="w-full flex flex-col md:flex-row px-3 gap-2">
+                  <div className="md:w-2/5 lg:w-1/2 flex flex-col gap-2 justify-between">
                     <MainProduct product={mainProduct} />
                     <div className="hidden flex-row gap-2 w-full lg:flex ">
                       <ButtonPrimary
@@ -114,34 +115,34 @@ const CartPopup: React.FC = () => {
                       <ButtonSecondary
                         className="w-full max-w-xl"
                         onClick={() => {}}
-                        label="Ir al carrito"
+                        label="Ir a Pagar"
                       />
                     </div>
                   </div>
                   <Checkout mainProduct={mainProduct as any} />
                 </section>
 
-                <div className="border-t border-gray-300 my-4 mx-4 dark:border-gray-700" />
+                <LineSeparator className="my-3 mx-4" />
 
-                <section className="max-w-4xl px-2 py-2 mb-2">
+                <section className="max-w-4xl px-2 py-4 lg:py-0 mb-2 ">
                   <EmblaCarousel
                     products={relatedProducts!}
                     options={OPTIONS}
                     currentProduct={mainProduct}
                   />
+                  <div className="flex flex-row gap-2 w-full lg:hidden py-4 px-4 max-w-xl m-auto">
+                    <ButtonPrimary
+                      className="w-full max-w-xl"
+                      onClick={() => dispatch(closePopup())}
+                      label="Volver atrás"
+                    />
+                    <ButtonSecondary
+                      className="w-full max-w-xl"
+                      onClick={() => {}}
+                      label="Ir a Pagar"
+                    />
+                  </div>
                 </section>
-                <div className="flex flex-row gap-2 w-full lg:hidden py-4 px-4">
-                  <ButtonPrimary
-                    className="w-full max-w-xl"
-                    onClick={() => dispatch(closePopup())}
-                    label="Volver atrás"
-                  />
-                  <ButtonSecondary
-                    className="w-full max-w-xl"
-                    onClick={() => {}}
-                    label="Ir al carrito"
-                  />
-                </div>
               </div>
             </div>
           </motion.div>

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect, useState } from "react";
 import { AddOrSubtractItems } from "../buttons/AddOrSubtractItems";
+import { MainProductText, MainProductTitle } from "../Texts";
 
 type Props = {
   product: Product;
@@ -19,75 +20,59 @@ function MainProduct({ product }: Props) {
   });
   return (
     <>
-      <div className="container flex flex-row items-start gap-4 w-full rounded-md">
-        <div className="overflow-hidden rounded-l-lg  max-w-[200px]">
+      <div className="container flex flex-row md:flex-col lg:flex-row items-start gap-2 lg:gap-4 w-full">
+        <div className="overflow-hidden md:overflow-visible lg:overflow-hidden rounded-lg min-w-32 max-w-40 w-full  sm:flex items-center justify-center ">
           <img
             src={product.images[0]}
             alt={product.name}
-            className="w-full h-auto max-w-[200px]"
+            className="w-full h-full"
           />
         </div>
-        <div className="w-2/3 flex flex-col justify-between h-full">
+        <div className="w-full flex flex-col justify-between h-full px-2">
           <div>
-            <h2 className="text-lg font-semibold uppercase">{product.name}</h2>
-            <p className="text-gray-600">{product.shortDescription}</p>
+            <MainProductTitle className="line-clamp-2">
+              {`${product.name} x ${cartItem?.quantity.toString()!}`}
+            </MainProductTitle>
+            <MainProductText>{product.shortDescription}</MainProductText>
           </div>
-          <div className="hidden lg:flex mt-2 w-full text-right flex-col justify-end items-end pr-5">
+          <div className="hidden lg:flex mt-2 w-full text-right flex-col justify-end items-end ">
             <AddOrSubtractItems item={cartItem!} mainItem={true} />
-            {product.promotionalPrice ? (
-              <div className="flex flex-row gap-2 w-fit">
-                <div className="flex flex-col">
-                  <span className="line-through text-gray-400 ml-2">
-                    ${product.regularPrice * quantityInCart}
-                  </span>
-                  <span className=" text-gray-700 dark:text-white font-bold ml-2">
-                    x {cartItem?.quantity}
-                  </span>
-                </div>
-                <span className=" font-semibold text-xl lg:text-2xl mt-3">
-                  ${(product.promotionalPrice * quantityInCart).toFixed(2)}
+            <div className="flex flex-row gap-2 w-fit">
+              {product.promotionalPrice && (
+                <span className="line-through text-gray-400 ml-2">
+                  ${product.regularPrice * quantityInCart}
                 </span>
-              </div>
-            ) : (
-              <div className="flex flex-row gap-2 w-fit">
-                <span className="text-gray-700 dark:text-white font-bold ml-2">
-                  x {cartItem?.quantity}
-                </span>
-                <span className="text-gray-700 font-semibold text-xl lg:text-2xl w-fit">
-                  ${(product.regularPrice * quantityInCart).toFixed(2)}
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+              )}
 
-      <div className="flex lg:hidden mt-2 w-full items-center justify-between pr-5 px-2">
-        <AddOrSubtractItems item={cartItem!} mainItem={true} />
-        {product.promotionalPrice ? (
-          <div className="flex flex-row gap-2 w-fit items-end">
-            <span className=" text-gray-700 dark:text-white font-bold ml-2 items-end">
-              x {cartItem?.quantity}
-            </span>
-            <div className="flex flex-col items-end">
-              <span className="line-through text-gray-400 ml-2">
-                ${(product.regularPrice * quantityInCart).toFixed(2)}
-              </span>
-              <span className=" font-semibold text-xl lg:text-3xl">
-                ${(product.promotionalPrice * quantityInCart).toFixed(2)}
+              <span className=" font-semibold text-xl lg:text-2xl mt-3">
+                $
+                {(
+                  (product.promotionalPrice ?? product.regularPrice) *
+                  quantityInCart
+                ).toFixed(2)}
               </span>
             </div>
           </div>
-        ) : (
-          <div className="flex flex-row gap-2 w-fit">
-            <span className=" text-gray-700 dark:text-white font-bold ml-2">
-              x {cartItem?.quantity}
-            </span>
-            <span className="text-gray-700 font-semibold text-xl lg:text-2xl w-fit">
-              ${(product.regularPrice * quantityInCart).toFixed(2)}
+        </div>
+
+        <div className="flex lg:hidden px-2 w-fit md:w-full text-right flex-col justify-between h-full items-end md:flex-row md:justify-between">
+          <AddOrSubtractItems item={cartItem!} mainItem={true} />
+          <div className="flex flex-col-reverse md:flex-row gap-2 w-fit">
+            {product.promotionalPrice && (
+              <span className="line-through text-gray-400 ml-2">
+                ${product.regularPrice * quantityInCart}
+              </span>
+            )}
+
+            <span className=" font-semibold text-xl lg:text-2xl mt-3">
+              $
+              {(
+                (product.promotionalPrice ?? product.regularPrice) *
+                quantityInCart
+              ).toFixed(1)}
             </span>
           </div>
-        )}
+        </div>
       </div>
     </>
   );
