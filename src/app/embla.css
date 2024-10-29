@@ -77,7 +77,7 @@
 
 .embla__button {
   pointer-events: all;
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly darker white */
+  background-color: white; /* Slightly darker white */
   color: black;
   width: 2.5rem;
   height: 2.5rem;
@@ -90,7 +90,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15); /* Modern shadow */
   cursor: pointer;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     transform: scale(1.05);
   }
 }

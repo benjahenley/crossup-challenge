@@ -1,10 +1,10 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Product } from "@/infrastructure/interfaces/product";
 import GradientButton from "../buttons/GradientButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { addToCart, removeFromCart } from "@/redux/slices/cartSlice";
+import { addToCart } from "@/redux/slices/cartSlice";
 import { CgDanger } from "react-icons/cg";
 
 type Props = {
@@ -19,24 +19,9 @@ function CrossUpCard({ product, currentProductName }: Props) {
   const cartItem = cartItems.find((item) => item.id === product.id);
   const quantityInCart = cartItem ? cartItem.quantity : 0;
   const availableStock = product.availableStock! - quantityInCart;
-  const [showButtons, setShowButtons] = useState(false);
-
-  const handleCardClick = () => setShowButtons(true);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-      setShowButtons(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   return (
     <div
-      onClick={handleCardClick}
       ref={cardRef}
       className="relative border-4 border-[#1278ff] dark:border-[#4a90e2] rounded-3xl hover:scale-95 cursor-pointer dark:bg-gray-800 bg-white transition-all shadow-lg hover:shadow-xl">
       <div className="p-3 w-full h-full">

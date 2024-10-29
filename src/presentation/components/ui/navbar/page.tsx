@@ -1,7 +1,6 @@
 "use client";
 
 import { DarkModeToggle } from "../DarkModeButton";
-import LanguageSelector from "../LanguageSelector";
 import { PageTitle } from "../Texts";
 
 const Navbar: React.FC = () => {
@@ -10,7 +9,6 @@ const Navbar: React.FC = () => {
       <div className="w-full flex flex-row justify-between items-center m-auto max-w-screen-lg md:text-left">
         <PageTitle className="uppercase">Tienda CrossUp</PageTitle>
         <div className=" flex items-center gap-4 flex-row lg:justify-center justify-between px-2">
-          {/* <LanguageSelector /> */}
           <DarkModeToggle />
         </div>
       </div>

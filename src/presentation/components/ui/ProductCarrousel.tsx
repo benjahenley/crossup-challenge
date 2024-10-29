@@ -15,7 +15,7 @@ import {
   usePrevNextButtons,
 } from "./embla/EmblaCarouselArrowButtons";
 import { OPTIONS } from "@/infrastructure/config/embla";
-import { PageTitle } from "./Texts";
+import { PageTitle, ProductTitle } from "./Texts";
 
 const ProductCarousel: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -63,7 +63,7 @@ const ProductCarousel: React.FC = () => {
           {products.map((product) => (
             <motion.div
               key={product.id}
-              className="flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5 mx-4 transition-all duration-300 transform hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5 mx-4 transition-all duration-300 transform hover:scale-95 hover:bg-gray-100 dark:hover:bg-gray-700"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}>
@@ -72,9 +72,7 @@ const ProductCarousel: React.FC = () => {
                 alt={product.name}
                 className="w-full h-72 object-cover rounded-lg mb-3 border border-gray-200 dark:border-gray-700"
               />
-              <h3 className="text-xl font-semibold mt-2 text-gray-800 dark:text-gray-200">
-                {product.name}
-              </h3>
+              <ProductTitle>{product.name}</ProductTitle>
               <p className="text-lg font-medium text-gray-600 dark:text-gray-400 mt-1">
                 ${product.promotionalPrice || product.regularPrice}
               </p>

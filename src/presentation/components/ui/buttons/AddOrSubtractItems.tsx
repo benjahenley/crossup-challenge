@@ -1,8 +1,6 @@
 "use client";
 import { CartItem } from "@/infrastructure/interfaces/cart";
-import { Product } from "@/infrastructure/interfaces/product";
-import { removeFromCart, updateQuantity } from "@/redux/slices/cartSlice";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { updateQuantity } from "@/redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 
 type Props = {

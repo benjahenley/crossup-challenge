@@ -47,7 +47,9 @@ const CartPopup: React.FC = () => {
           const response = await axios.get(
             "https://api.npoint.io/a69824ca4c40ac8e783d"
           );
+
           const data = response.data.find(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (item: any) => item.shooter.id === selectedProductId
           );
 

@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={"es"} className="">
+    <html lang={"es"}>
       <head>
         {/* Poppins Font */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
