@@ -1,4 +1,4 @@
-# 🌟 Proyecto de E-commerce con Next.js
+# 🌟 Proyecto Carrito E-commerce con Next.js
 
 Este proyecto es una aplicación de e-commerce creada con [Next.js](https://nextjs.org), optimizada con **Tailwind CSS** y **Framer Motion** para una experiencia moderna e interactiva. Aquí puedes navegar por productos, gestionar un carrito en tiempo real y cambiar entre temas claro y oscuro. 
 
