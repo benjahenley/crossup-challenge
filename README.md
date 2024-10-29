@@ -2,8 +2,6 @@
 
 Este proyecto es una aplicación de e-commerce creada con [Next.js](https://nextjs.org), optimizada con **Tailwind CSS** y **Framer Motion** para una experiencia moderna e interactiva. Aquí puedes navegar por productos, gestionar un carrito en tiempo real y cambiar entre temas claro y oscuro. 
 
-## 🚀 Despliegue en Vercel
-
 El demo completo está disponible aquí: [Vercel Proyecto](crossup-challenge-git-main-benjini123s-projects.vercel.app)
 
 ---
