@@ -38,7 +38,7 @@ function CrossUpCard({ product, currentProductName }: Props) {
     <div
       onClick={handleCardClick}
       ref={cardRef}
-      className="relative border-4 border-[#1278ff] dark:border-[#4a90e2] rounded-3xl cursor-pointer dark:bg-gray-800 bg-white transition-all shadow-lg hover:shadow-2xl">
+      className="relative border-4 border-[#1278ff] dark:border-[#4a90e2] rounded-3xl hover:scale-95 cursor-pointer dark:bg-gray-800 bg-white transition-all shadow-lg hover:shadow-xl">
       <div className="p-3 w-full h-full">
         <div className="relative flex flex-col w-full items-center h-full justify-between gap-2">
           {product.promotionalPrice && (
