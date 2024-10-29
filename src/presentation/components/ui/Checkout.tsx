@@ -25,7 +25,7 @@ const Checkout = ({ mainProduct }: Props) => {
   }, [cartItems, isPopupOpen]);
 
   return (
-    <div className="w-full lg:w-1/2 bg-slate-50 dark:bg-gray-800 rounded-lg shadow-lg ">
+    <div className="w-full lg:w-1/2 bg-slate-50 dark:bg-gray-800 rounded-lg shadow-lg px-3">
       <h3 className="text-2xl font-semibold lg:px-4 pt-5 lg:pt-5 text-gray-800 dark:text-gray-100">
         Carrito
       </h3>

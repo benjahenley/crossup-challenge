@@ -62,7 +62,7 @@ function MainProduct({ product }: Props) {
         </div>
       </div>
 
-      <div className="flex lg:hidden mt-2 w-full items-center justify-between pr-5">
+      <div className="flex lg:hidden mt-2 w-full items-center justify-between pr-5 px-2">
         <AddOrSubtractItems item={cartItem!} mainItem={true} />
         {product.promotionalPrice ? (
           <div className="flex flex-row gap-2 w-fit items-end">

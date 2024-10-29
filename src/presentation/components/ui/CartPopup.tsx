@@ -77,15 +77,15 @@ const CartPopup: React.FC = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}>
             <div
               ref={popupRef}
-              className=" bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full relative h-full overflow-y-scroll">
+              className=" bg-white dark:bg-gray-900 text-black dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full relative h-full overflow-y-scroll">
               <button
                 onClick={() => dispatch(closePopup())}
-                className="absolute top-4 right-5 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
+                className="absolute top-4 right-5 text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
                 <IoIosCloseCircle size={32} />
               </button>
               <button
                 onClick={() => dispatch(closePopup())}
-                className="absolute top-4 left-4 lg:hidden text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
+                className="absolute top-4 left-4 lg:hidden text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
                 <IoArrowBackCircle size={32} />
               </button>
               <section className="flex items-center flex-col overflow-hidden">
@@ -128,6 +128,18 @@ const CartPopup: React.FC = () => {
                     currentProduct={mainProduct}
                   />
                 </section>
+                <div className="flex flex-row gap-2 w-full lg:hidden py-4 px-4">
+                  <ButtonPrimary
+                    className="w-full max-w-xl"
+                    onClick={() => dispatch(closePopup())}
+                    label="Volver atrás"
+                  />
+                  <ButtonSecondary
+                    className="w-full max-w-xl"
+                    onClick={() => {}}
+                    label="Ir al carrito"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
