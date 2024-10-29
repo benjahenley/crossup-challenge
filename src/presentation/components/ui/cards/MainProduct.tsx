@@ -40,7 +40,7 @@ function MainProduct({ product }: Props) {
                   <span className="line-through text-gray-400 ml-2">
                     ${product.regularPrice * quantityInCart}
                   </span>
-                  <span className=" text-white font-bold ml-2">
+                  <span className=" text-gray-700 dark:text-white font-bold ml-2">
                     x {cartItem?.quantity}
                   </span>
                 </div>
@@ -50,7 +50,7 @@ function MainProduct({ product }: Props) {
               </div>
             ) : (
               <div className="flex flex-row gap-2 w-fit">
-                <span className=" text-white font-bold ml-2">
+                <span className="text-gray-700 dark:text-white font-bold ml-2">
                   x {cartItem?.quantity}
                 </span>
                 <span className="text-gray-700 font-semibold text-xl lg:text-2xl w-fit">
@@ -66,7 +66,7 @@ function MainProduct({ product }: Props) {
         <AddOrSubtractItems item={cartItem!} mainItem={true} />
         {product.promotionalPrice ? (
           <div className="flex flex-row gap-2 w-fit items-end">
-            <span className=" text-white font-bold ml-2 items-end">
+            <span className=" text-gray-700 dark:text-white font-bold ml-2 items-end">
               x {cartItem?.quantity}
             </span>
             <div className="flex flex-col items-end">
@@ -80,7 +80,7 @@ function MainProduct({ product }: Props) {
           </div>
         ) : (
           <div className="flex flex-row gap-2 w-fit">
-            <span className=" text-white font-bold ml-2">
+            <span className=" text-gray-700 dark:text-white font-bold ml-2">
               x {cartItem?.quantity}
             </span>
             <span className="text-gray-700 font-semibold text-xl lg:text-2xl w-fit">
