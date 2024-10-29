@@ -63,7 +63,7 @@ const ProductCarousel: React.FC = () => {
           {products.map((product) => (
             <motion.div
               key={product.id}
-              className="flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5 mx-4 transition-all duration-300 transform hover:scale-95 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5 mx-4 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}>
