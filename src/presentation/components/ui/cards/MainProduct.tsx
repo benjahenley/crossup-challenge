@@ -31,7 +31,7 @@ function MainProduct({ product }: Props) {
         <div className="w-full flex flex-col justify-between h-full px-2">
           <div>
             <MainProductTitle className="line-clamp-2">
-              {`${product.name} x ${cartItem?.quantity.toString()!}`}
+              {`${product.name} x ${cartItem!.quantity.toString()!}`}
             </MainProductTitle>
             <MainProductText>{product.shortDescription}</MainProductText>
           </div>
