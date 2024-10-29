@@ -38,13 +38,13 @@ function MainProduct({ product }: Props) {
               <div className="flex flex-row gap-2 w-fit">
                 <div className="flex flex-col">
                   <span className="line-through text-gray-400 ml-2">
-                    ${product.regularPrice}
+                    ${product.regularPrice * quantityInCart}
                   </span>
                   <span className=" text-white font-bold ml-2">
                     x {cartItem?.quantity}
                   </span>
                 </div>
-                <span className=" font-semibold text-xl lg:text-3xl mt-3">
+                <span className=" font-semibold text-xl lg:text-2xl mt-3">
                   ${(product.promotionalPrice * quantityInCart).toFixed(2)}
                 </span>
               </div>
@@ -71,7 +71,7 @@ function MainProduct({ product }: Props) {
             </span>
             <div className="flex flex-col items-end">
               <span className="line-through text-gray-400 ml-2">
-                ${product.regularPrice}
+                ${(product.regularPrice * quantityInCart).toFixed(2)}
               </span>
               <span className=" font-semibold text-xl lg:text-3xl">
                 ${(product.promotionalPrice * quantityInCart).toFixed(2)}
