@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 Proyecto de E-commerce con Next.js
 
-## Getting Started
+Este proyecto es una aplicación de e-commerce creada con [Next.js](https://nextjs.org), optimizada con **Tailwind CSS** y **Framer Motion** para una experiencia moderna e interactiva. Aquí puedes navegar por productos, gestionar un carrito en tiempo real y cambiar entre temas claro y oscuro. 
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Configuración del Entorno de Desarrollo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clona el repositorio e instala las dependencias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    git clone <https://github.com/benjahenley/crossup-challenge>
+    cd <crossup-challenge>
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Inicia el servidor de desarrollo:
 
-## Learn More
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Accede a la app en [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔑 Funcionalidades Clave
 
-## Deploy on Vercel
+- **🎡 Carrusel de Productos**: Desplázate horizontalmente por productos con animaciones suaves y controles intuitivos.
+- **🛒 Popup del Carrito**: Visualiza tu carrito en tiempo real, ajusta cantidades y elimina productos al instante.
+- **🌗 Modo Oscuro**: Alterna entre temas claro y oscuro para una experiencia personalizada.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Decisiones de Desarrollo
+
+### ⚙️ Estructura del Estado
+Se utilizó **Redux** para gestionar el estado del carrito, optimizando la actualización en tiempo real de precios y cantidades. 
+
+### 🎨 Diseño y Animaciones
+**Tailwind CSS** se empleó para crear un diseño responsive, mientras que **Framer Motion** permitió animaciones fluidas dentro de los componentes.
+
+---
+
+## 🎥 Ejemplos y Demostraciones
+
+Aquí puedes ver videos y capturas de pantalla que muestran el flujo de navegación y las interacciones en la aplicación.
+
+---
+
+## 🚀 Despliegue en Vercel
+
+El demo completo está disponible aquí: [soon]
+
+---
+
+¡Explora el proyecto, personaliza las funcionalidades y contribuye con mejoras! 🎉
