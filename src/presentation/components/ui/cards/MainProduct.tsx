@@ -58,7 +58,7 @@ function MainProduct({ product }: Props) {
                     ${product.regularPrice * quantityInCart}
                   </span>
                 )}
-                <span className="font-semibold text-xl lg:text-2xl mt-3">
+                <span className="font-semibold text-xl lg:text-2xl mt-3 text-gray-800 dark:text-white">
                   $
                   {(
                     (product.promotionalPrice ?? product.regularPrice) *

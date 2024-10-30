@@ -24,7 +24,7 @@ function SectionTitle({ children, className = "" }: Props) {
 function ProductTitle({ children, className = "" }: Props) {
   return (
     <h3
-      className={`${className} uppercase text-xl font-semibold mt-2 text-gray-800 dark:text-gray-200`}>
+      className={`${className} uppercase text-xl font-semibold mt-2 text-gray-800 dark:text-white`}>
       {children}
     </h3>
   );
@@ -32,7 +32,8 @@ function ProductTitle({ children, className = "" }: Props) {
 
 function MainProductTitle({ children, className = "" }: Props) {
   return (
-    <h2 className={`${className} text-xl md:text-xl font-semibold uppercase`}>
+    <h2
+      className={`${className} text-gray-800 text-xl md:text-xl dark:text-white font-semibold uppercase`}>
       {children}
     </h2>
   );
@@ -68,7 +69,7 @@ function StockText({ children, className = "" }: Props) {
 function ConfirmationText({ children, className = "" }: Props) {
   return (
     <h4
-      className={`${className} font-bold text-lg lg:text-2xl text-gray-800 dark:text-gray-200`}>
+      className={`${className} font-bold text-lg lg:text-2xl text-gray-800 dark:text-white`}>
       {children}
     </h4>
   );

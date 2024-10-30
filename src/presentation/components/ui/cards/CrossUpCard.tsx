@@ -82,7 +82,7 @@ function CrossUpCard({ product, currentProduct }: Props) {
               {availableStock < 10 && <CgDanger />}
               Stock: {availableStock > 0 ? availableStock : "Out of stock"}
             </p>
-            <p className="dark:text-gray-200">
+            <p className="dark:text-gray-200 ">
               Llevalo por:{" "}
               <b className="inline">
                 $
