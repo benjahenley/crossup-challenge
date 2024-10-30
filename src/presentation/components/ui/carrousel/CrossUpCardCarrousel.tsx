@@ -29,13 +29,13 @@ const CrossUpCardCarousel: React.FC<PropType> = (props) => {
   return (
     <section className="embla relative">
       <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+        <div className="embla__container" style={{ paddingTop: 0 }}>
           {products.map((item: Product, key: number) => (
             <div className="embla__slide" key={key}>
               <div className="embla__slide__number">
                 <CrossUpCard
                   product={item}
-                  currentProductName={currentProduct.name}></CrossUpCard>
+                  currentProduct={currentProduct}></CrossUpCard>
               </div>
             </div>
           ))}

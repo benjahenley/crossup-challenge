@@ -10,10 +10,10 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 
 type Props = {
   product: Product;
-  currentProductName: string;
+  currentProduct: Product;
 };
 
-function CrossUpCard({ product, currentProductName }: Props) {
+function CrossUpCard({ product, currentProduct }: Props) {
   const dispatch = useDispatch();
   const cardRef = useRef<HTMLDivElement>(null);
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -57,30 +57,41 @@ function CrossUpCard({ product, currentProductName }: Props) {
           <p
             className="text-xs font-bold text-center h-8 px-5 text-wrap dark:text-gray-200"
             style={{ lineHeight: "1.1rem" }}>
-            {product.name} + {currentProductName}
+            {product.name} + <br />
+            {currentProduct!.name}
           </p>
 
           <img
-            className="w-64 h-32 object-cover rounded-xl"
-            src={product.images[0]}
+            className="w-52 h-32 object-cover rounded-xl"
+            src={
+              product.images[0] ||
+              "https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI"
+            }
             alt={`${product.name} image`}
+            onError={(e) => {
+              e.currentTarget.src =
+                "https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI";
+            }}
           />
-          <p
-            className={`${
-              availableStock < 10 && "text-red-500  hover-text"
-            } flex flex-row items-center gap-1 justify-center relative`}>
-            {availableStock < 10 && <CgDanger />}
-            Stock: {availableStock > 0 ? availableStock : "Out of stock"}
-          </p>
-          <p className="dark:text-gray-200">
-            Llevalo por:{" "}
-            <b className="inline">
-              $
-              {product.promotionalPrice
-                ? product.promotionalPrice
-                : product.regularPrice}
-            </b>
-          </p>
+
+          <div className="">
+            <p
+              className={`${
+                availableStock < 10 && "text-red-500  hover-text"
+              } flex flex-row items-center gap-1 justify-center relative`}>
+              {availableStock < 10 && <CgDanger />}
+              Stock: {availableStock > 0 ? availableStock : "Out of stock"}
+            </p>
+            <p className="dark:text-gray-200">
+              Llevalo por:{" "}
+              <b className="inline">
+                $
+                {product.promotionalPrice
+                  ? product.promotionalPrice
+                  : product.regularPrice}
+              </b>
+            </p>
+          </div>
 
           <GradientButton
             label="AGREGAR AL CARRITO"

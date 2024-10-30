@@ -7,49 +7,43 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { ConfirmationText } from "./Texts";
 
-// const slotMachineVariants = {
-//   hidden: { y: -50, opacity: 0 },
-//   visible: {
-//     y: 0,
-//     opacity: 1,
-//     transition: {
-//       duration: 0.6,
-//       type: "spring",
-//       stiffness: 200,
-//       damping: 15,
-//       repeat: Infinity,
-//       repeatType: "mirror" as any,
-//     },
-//   },
-//   exit: { y: 50, opacity: 0 },
-// };
-
 const ItemAddedMessage = () => {
   const { items } = useSelector((state: RootState) => state.cart);
+  const [prevTotalQuantity, setPrevTotalQuantity] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
+  const currentTotalQuantity = items.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   useEffect(() => {
-    if (items.length) {
+    // Check if total quantity increased
+    if (currentTotalQuantity > prevTotalQuantity) {
       setAnimationKey((prev) => prev + 1);
     }
-  }, [items]);
+    setPrevTotalQuantity(currentTotalQuantity); // Update previous total quantity
+  }, [currentTotalQuantity]);
 
   return (
     <section className="flex items-center flex-col">
       <motion.div
         key={animationKey}
-        initial="visible"
-        animate="visible"
-        exit="exit"
-        // variants={slotMachineVariants}
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{
+          duration: 0.6,
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+        }}
         className="px-5 py-5 flex flex-row justify-start items-center w-full gap-3 lg:px-5">
-        <motion.div className="flex items-center gap-3">
-          <FaRegCheckCircle
-            className="text-green-500 dark:text-green-400"
-            size={26}
-          />
-          <ConfirmationText>Producto añadido al carrito</ConfirmationText>
-        </motion.div>
+        <FaRegCheckCircle
+          className="text-green-500 dark:text-green-400"
+          size={26}
+        />
+        <ConfirmationText>Producto añadido al carrito</ConfirmationText>
       </motion.div>
     </section>
   );

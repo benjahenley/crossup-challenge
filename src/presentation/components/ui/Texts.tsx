@@ -1,5 +1,5 @@
 type Props = {
-  children: string;
+  children: string | string[];
   className?: string;
 };
 
@@ -15,7 +15,7 @@ function PageTitle({ children, className = "" }: Props) {
 function SectionTitle({ children, className = "" }: Props) {
   return (
     <h3
-      className={`${className} text-3xl font-semibold  text-gray-800 dark:text-gray-100`}>
+      className={`${className} text-3xl font-semibold text-gray-800 dark:text-gray-100`}>
       {children}
     </h3>
   );
@@ -37,20 +37,49 @@ function MainProductTitle({ children, className = "" }: Props) {
     </h2>
   );
 }
+
 function MainProductText({ children, className = "" }: Props) {
   return (
     <p
-      className={`${className} text-clip text-md font-normal line-clamp-3  text-gray-500 dark:text-gray-300`}>
+      className={`${className} text-clip text-md font-normal line-clamp-3 text-gray-500 dark:text-gray-300`}>
       {children}
     </p>
   );
 }
 
-function ConfirmationText({ children }: Props) {
+function PriceText({ children, className = "" }: Props) {
   return (
-    <h4 className="font-bold text-lg lg:text-2xl text-gray-800 dark:text-gray-200">
+    <p
+      className={`${className} text-lg font-semibold text-gray-700 dark:text-gray-400`}>
+      {children}
+    </p>
+  );
+}
+
+function StockText({ children, className = "" }: Props) {
+  return (
+    <p
+      className={`${className} text-sm font-medium text-gray-500 dark:text-gray-400`}>
+      {children}
+    </p>
+  );
+}
+
+function ConfirmationText({ children, className = "" }: Props) {
+  return (
+    <h4
+      className={`${className} font-bold text-lg lg:text-2xl text-gray-800 dark:text-gray-200`}>
       {children}
     </h4>
+  );
+}
+
+function ProductDescription({ children, className = "" }: Props) {
+  return (
+    <p
+      className={`${className} text-md font-light text-gray-700 dark:text-gray-400 line-clamp-5`}>
+      {children}
+    </p>
   );
 }
 
@@ -60,5 +89,8 @@ export {
   SectionTitle,
   MainProductTitle,
   MainProductText,
+  PriceText,
+  StockText,
   ConfirmationText,
+  ProductDescription,
 };

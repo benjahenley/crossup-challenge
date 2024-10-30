@@ -13,7 +13,7 @@ export function AddOrRemoveItems({ item, mainItem }: Props) {
   const dispatch = useDispatch();
   const isSubtractDisabled = item.quantity <= 1;
   return (
-    <div className="absolute right-0 top-2 bottom-0">
+    <div className="absolute right-4 top-2 bottom-0">
       <div className="flex lg:hidden group-hover:flex items-center gap-2 flex-wrap justify-between ml-5">
         <button
           onClick={() =>
@@ -25,7 +25,7 @@ export function AddOrRemoveItems({ item, mainItem }: Props) {
             )
           }
           disabled={isSubtractDisabled && mainItem}
-          className="bg-gray-300 hover:bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-100 px-2 py-0 rounded font-bold">
+          className="bg-gray-300 hover:bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-400 text-gray-700 dark:text-gray-100 px-2 py-0 rounded font-bold">
           -
         </button>
         <button
@@ -37,14 +37,14 @@ export function AddOrRemoveItems({ item, mainItem }: Props) {
               })
             )
           }
-          className="bg-gray-300 hover:bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-100 px-2 py-0 rounded font-bold">
+          className=" bg-gray-300 dark:hover:bg-gray-400 hover:bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-100 px-2 py-0 rounded font-bold">
           +
         </button>
         <button
           disabled={mainItem}
-          className="text-red-500 dark:text-red-400"
+          className="text-red-500 dark:text-red-400 "
           onClick={() => dispatch(removeFromCart(item.id))}>
-          <FaRegTrashAlt />
+          <FaRegTrashAlt className="hover:scale-110 text-xl" />
         </button>
       </div>
     </div>

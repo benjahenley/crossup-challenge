@@ -15,6 +15,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
 }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       disabled={disabled}
       className={`${className} max-h-[40px] px-6 py-2 font-bold hover:scale-105 

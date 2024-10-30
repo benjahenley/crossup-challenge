@@ -12,7 +12,7 @@ export function AddOrSubtractItems({ item, mainItem = false }: Props) {
   const dispatch = useDispatch();
   const isSubtractDisabled = item.quantity <= 1;
   return (
-    <div className="flex items-center gap-2 md:gap-4 lg:gap-2 flex-wrap justify-between  w-fit">
+    <div className="flex items-center gap-2 md:gap-4 lg:gap-2 flex-wrap justify-between w-fit">
       <button
         onClick={() =>
           dispatch(
@@ -23,7 +23,7 @@ export function AddOrSubtractItems({ item, mainItem = false }: Props) {
           )
         }
         disabled={isSubtractDisabled && mainItem}
-        className="md:scale-125 lg:scale-100 bg-gray-300 hover:bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-100 px-2 rounded font-bold">
+        className="md:scale-125 lg:scale-100 bg-gray-300 hover:bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-400 text-gray-700 dark:text-gray-100 px-2 rounded font-bold">
         -
       </button>
       <button
@@ -35,7 +35,7 @@ export function AddOrSubtractItems({ item, mainItem = false }: Props) {
             })
           )
         }
-        className="md:scale-125 lg:scale-100 hover:bg-gray-200 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-100 px-2  rounded font-bold">
+        className="md:scale-125 lg:scale-100 hover:bg-gray-200 bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-400 text-gray-700 dark:text-gray-100 px-2  rounded font-bold">
         +
       </button>
     </div>

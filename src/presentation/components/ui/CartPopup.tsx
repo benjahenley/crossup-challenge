@@ -73,7 +73,7 @@ const CartPopup: React.FC = () => {
         <>
           <div className="bg-opacity-50 bg-black w-full fixed inset-0 h-full" />
           <motion.div
-            className="absolute sm:left-5 sm:right-5 md:left-8 md:right-8 top-5 left-0 right-0 bottom-2 flex items-center justify-center z-50 rounded-xl max-h-fit overflow-scroll"
+            className="absolute sm:left-5 sm:right-5 md:left-8 md:right-8 top-0 md:top-2 lg:top-3 xl:top-4 left-0 right-0 bottom-2 flex items-center justify-center z-50 rounded-xl max-h-fit overflow-scroll"
             initial={{ y: "100vh" }}
             animate={{ y: 0 }}
             exit={{ y: "100vh", opacity: 0 }}
@@ -104,9 +104,9 @@ const CartPopup: React.FC = () => {
 
               <div className="flex flex-col">
                 <section className="w-full flex flex-col md:flex-row px-3 gap-2">
-                  <div className="md:w-2/5 lg:w-1/2 flex flex-col gap-2 justify-between">
+                  <div className="w-full md:w-2/5 lg:w-1/2 flex flex-col gap-2 justify-between">
                     <MainProduct product={mainProduct} />
-                    <div className="hidden flex-row gap-2 w-full lg:flex ">
+                    <div className="px-2 hidden md:flex-col lg:flex-row gap-2 w-full md:flex">
                       <ButtonPrimary
                         className="w-full max-w-xl"
                         onClick={() => dispatch(closePopup())}
@@ -130,7 +130,7 @@ const CartPopup: React.FC = () => {
                     options={OPTIONS}
                     currentProduct={mainProduct}
                   />
-                  <div className="flex flex-row gap-2 w-full lg:hidden py-4 px-4 max-w-xl m-auto">
+                  <div className="flex flex-row gap-2 w-full md:hidden py-4 px-4 max-w-xl m-auto">
                     <ButtonPrimary
                       className="w-full max-w-xl"
                       onClick={() => dispatch(closePopup())}

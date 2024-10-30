@@ -35,8 +35,8 @@ const Checkout = ({ mainProduct }: Props) => {
           <FaCartShopping className="text-3xl mx-2 dark:text-white text-black"></FaCartShopping>
         </div>
 
-        <LineSeparator className="mx-3" />
-        <div className=" max-h-[300px] md:max-h-[200px] xl:max-h-[220px] overflow-scroll scrollbar-visible lg:px-4 ">
+        <LineSeparator className="mx-0 md:mx-3" />
+        <div className="h-full max-h-[300px] md:h-[180px] overflow-scroll scrollbar-visible lg:px-4 ">
           {cartItems.map((item, key) => {
             const isMain = item.id === mainProduct.id;
             return (
@@ -64,7 +64,7 @@ const Checkout = ({ mainProduct }: Props) => {
       </div>
 
       <div>
-        <LineSeparator className="mx-3" />
+        <LineSeparator className="mx-0 lg:mx-3" />
         <div className="py-4 lg:px-4 flex flex-row justify-between">
           <MainProductTitle>TOTAL: </MainProductTitle>
           <p className="text-xl font-semibold text-gray-800 dark:text-gray-100">
