@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import "./embla.css";
 import ReduxProvider from "@/presentation/components/providers/ReduxProvider";
 import ThemeProvider from "@/presentation/components/providers/ThemeProvider";
+import "./globals.css";
+import "./embla.css";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,28 +19,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang={"es"}>
+    <html lang="es" className={poppins.className}>
       <head>
-        {/* Poppins Font */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          cross-origin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="shortcut icon" href="./favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <ReduxProvider>
         <ThemeProvider>
-          <body className="font-poppins antialiased min-h-screen w-full h-screen">
+          <body className=" antialiased min-h-screen w-full h-screen">
             {children}
           </body>
         </ThemeProvider>

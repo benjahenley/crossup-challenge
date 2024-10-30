@@ -44,15 +44,13 @@ const ProductCarousel: React.FC = () => {
       <div className="px-2 py-5 text-center">
         <PageTitle className="uppercase py-4">Productos</PageTitle>
       </div>
-
       <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+        <div className="embla__container" style={{ paddingTop: 0 }}>
           {products.map((product, key) => (
             <HomeProduct product={product} key={key}></HomeProduct>
           ))}
         </div>
       </div>
-
       <div className="embla__controls">
         <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />

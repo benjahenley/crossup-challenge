@@ -4,7 +4,7 @@ import { Product } from "@/infrastructure/interfaces/product";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect, useState } from "react";
-import { AddOrSubtractItems } from "../buttons/AddOrSubtractItems";
+import { QuantityControlButton } from "../buttons/QuantityControlButton";
 import { MainProductText, MainProductTitle } from "../Texts";
 
 type Props = {
@@ -47,7 +47,11 @@ function MainProduct({ product }: Props) {
               />
             </div>
             <div className="flex mt-2 text-right flex-col justify-end items-end space-y-2">
-              <AddOrSubtractItems item={cartItem!} mainItem={true} />
+              <QuantityControlButton
+                item={cartItem!}
+                mainItem={true}
+                showRemove={false}
+              />
               <div className="flex flex-row gap-2 w-fit">
                 {product.promotionalPrice && (
                   <span className="line-through text-gray-400 ml-2 whitespace-nowrap overflow-hidden overflow-ellipsis">

@@ -6,16 +6,15 @@ import axios from "axios";
 import { Product, Shooter } from "@/infrastructure/interfaces/product";
 import { RootState } from "@/redux/store";
 import { IoArrowBackCircle } from "react-icons/io5";
+import { IoIosCloseCircle } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import MainProduct from "./cards/MainProduct";
 import Checkout from "./Checkout";
 import EmblaCarousel from "./carrousel/CrossUpCardCarrousel";
 import { OPTIONS } from "@/infrastructure/config/embla";
-import ButtonPrimary from "./buttons/ButtonPrimary";
-import ButtonSecondary from "./buttons/ButtonSecondary";
-import { IoIosCloseCircle } from "react-icons/io";
 import ItemAddedMessage from "./ItemAdded";
 import { LineSeparator } from "./LineSeparator";
+import { ButtonPrimary, ButtonSecondary } from "./buttons/Buttons";
 
 const CartPopup: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,6 +27,7 @@ const CartPopup: React.FC = () => {
   );
   const popupRef = useRef<HTMLDivElement>(null);
 
+  // Close popup on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -41,6 +41,7 @@ const CartPopup: React.FC = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dispatch]);
 
+  // Fetch main product and related products
   useEffect(() => {
     const fetchProductData = async () => {
       if (selectedProductId) {
@@ -48,12 +49,9 @@ const CartPopup: React.FC = () => {
           const response = await axios.get(
             "https://api.npoint.io/a69824ca4c40ac8e783d"
           );
-
           const data = response.data.find(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (item: any) => item.shooter.id === selectedProductId
           );
-
           setMainProduct(data.shooter || null);
           setRelatedProducts(data.products || []);
         } catch (error) {
@@ -61,7 +59,6 @@ const CartPopup: React.FC = () => {
         }
       }
     };
-
     fetchProductData();
   }, [selectedProductId]);
 
@@ -71,28 +68,29 @@ const CartPopup: React.FC = () => {
     <AnimatePresence>
       {isPopupOpen && (
         <>
-          <div className="bg-opacity-50 bg-black w-full fixed inset-0 h-full" />
+          <div className="bg-opacity-50 bg-black fixed inset-0 h-full w-full" />
           <motion.div
-            className="absolute sm:left-5 sm:right-5 md:left-8 md:right-8 top-0 md:top-2 lg:top-3 xl:top-4 left-0 right-0 bottom-2 flex items-center justify-center z-50 rounded-xl max-h-fit overflow-scroll"
+            className="fixed inset-0 flex items-center justify-center z-50 sm:p-4"
             initial={{ y: "100vh" }}
             animate={{ y: 0 }}
             exit={{ y: "100vh", opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}>
             <div
               ref={popupRef}
-              className=" bg-white dark:bg-gray-900 text-black dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full relative h-full overflow-y-scroll">
+              className="bg-white dark:bg-gray-900 text-black dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full h-full md:h-fit relative overflow-y-scroll">
               <button
                 onClick={() => dispatch(closePopup())}
-                className="absolute top-4 right-5 text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
+                className="absolute top-4 right-5   dark:text-gray-600 md:icon-hover-primary">
                 <IoIosCloseCircle size={32} />
               </button>
               <button
                 onClick={() => dispatch(closePopup())}
-                className="absolute top-4 left-4 md:hidden text-black dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400">
+                className="absolute top-4 left-4 md:hidden dark:text-gray-600 md:icon-hover-primary">
                 <IoArrowBackCircle size={32} />
               </button>
-              <section className="flex items-center flex-col overflow-hidden">
-                <div className="overflow-hidden w-full max-h-[200px] rounded-t-xl md:hidden">
+
+              <section className="flex flex-col items-center overflow-hidden">
+                <div className="w-full max-h-[200px] md:hidden rounded-t-xl overflow-hidden">
                   <img
                     src={mainProduct.images[1]}
                     alt={mainProduct.name}
@@ -100,13 +98,13 @@ const CartPopup: React.FC = () => {
                   />
                 </div>
               </section>
-              <ItemAddedMessage></ItemAddedMessage>
+              <ItemAddedMessage />
 
               <div className="flex flex-col">
                 <section className="w-full flex flex-col md:flex-row px-3 gap-2">
                   <div className="w-full md:w-2/5 lg:w-1/2 flex flex-col gap-2 justify-between">
                     <MainProduct product={mainProduct} />
-                    <div className="px-2 hidden md:flex-col lg:flex-row gap-2 w-full md:flex">
+                    <div className="hidden md:flex flex-col lg:flex-row gap-2 w-full">
                       <ButtonPrimary
                         className="w-full max-w-xl"
                         onClick={() => dispatch(closePopup())}
@@ -124,7 +122,7 @@ const CartPopup: React.FC = () => {
 
                 <LineSeparator className="my-3 mx-4" />
 
-                <section className="max-w-4xl px-2 py-4 lg:py-0 mb-2 ">
+                <section className="max-w-4xl px-2 py-4 lg:py-0 mb-2">
                   <EmblaCarousel
                     products={relatedProducts!}
                     options={OPTIONS}
