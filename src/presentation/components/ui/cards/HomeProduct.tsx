@@ -20,15 +20,15 @@ const HomeProduct = ({ product }: Props) => {
 
   return (
     <motion.div
-      className="max-w-xs flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mx-4 transition-all duration-300 hover:shadow-2xl transform hover:scale-105 dark:hover:bg-gray-700"
+      className="w-full max-w-[300px] flex-shrink-0 mb-10 flex flex-col justify-between bg-white dark:bg-gray-800 shadow-lg rounded-lg p-2 lg:p-4 mx-4 transition-all duration-300 hover:shadow-2xl transform  dark:hover:bg-gray-700"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}>
-      <div className="relative overflow-hidden rounded-lg mb-4">
+      <div className="relative overflow-hidden rounded-lg mb-4 flex justify-center">
         <img
           src={product.images[0] ?? "https://via.placeholder.com/150"}
           alt={product.name}
-          className="w-full h-64 object-cover rounded-lg border border-gray-200 dark:border-gray-700"
+          className="w-full h-52 object-cover rounded-lg border border-gray-200 dark:border-gray-700"
         />
         {product.promotionalPrice && (
           <div className="absolute top-2 left-2 bg-blue-500 text-white px-3 py-1 text-xs font-bold rounded">

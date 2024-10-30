@@ -1,5 +1,5 @@
 type Props = {
-  children: string | string[];
+  children: React.ReactNode;
   className?: string;
 };
 
@@ -69,7 +69,7 @@ function StockText({ children, className = "" }: Props) {
 function ConfirmationText({ children, className = "" }: Props) {
   return (
     <h4
-      className={`${className} font-bold text-lg lg:text-2xl text-gray-800 dark:text-white`}>
+      className={`${className} font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-white`}>
       {children}
     </h4>
   );

@@ -74,7 +74,7 @@ function CrossUpCard({ product, currentProduct }: Props) {
             }}
           />
 
-          <div className="">
+          <div className="flex flex-col items-center">
             <p
               className={`${
                 availableStock < 10 && "text-red-500  hover-text"

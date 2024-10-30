@@ -40,7 +40,7 @@ const ProductCarousel: React.FC = () => {
   }, []);
 
   return (
-    <section className="embla relative px-4 lg:px-10  bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <section className="embla relative px-2   bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
       <div className="px-2 py-5 text-center">
         <PageTitle className="uppercase py-4">Productos</PageTitle>
       </div>

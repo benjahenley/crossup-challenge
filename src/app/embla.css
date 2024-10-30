@@ -80,30 +80,16 @@
 
 .embla__button {
   pointer-events: all;
-  background-color: white; /* Slightly darker white */
-  color: black;
+
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   z-index: 40;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15); /* Modern shadow */
   cursor: pointer;
-  &:hover {
-    background-color: white;
-    transform: scale(1.05);
-  }
-}
-
-.embla__button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.embla__button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .embla__button:disabled {
