@@ -42,7 +42,7 @@ function MainProductTitle({ children, className = "" }: Props) {
 function MainProductText({ children, className = "" }: Props) {
   return (
     <p
-      className={`${className} text-clip text-md font-normal line-clamp-3 text-gray-500 dark:text-gray-300`}>
+      className={`${className} text-clip text-sm md:text-base font-normal line-clamp-3 text-gray-500 dark:text-gray-300`}>
       {children}
     </p>
   );

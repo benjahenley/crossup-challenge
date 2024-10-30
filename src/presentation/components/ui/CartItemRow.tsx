@@ -13,8 +13,8 @@ const CartItemRow = ({ item, isMain }: Props) => (
         <h4 className="font-semibold text-gray-800 dark:text-gray-100">
           {item.name} x {item.quantity}
         </h4>
-        <p className="text-gray-500 dark:text-gray-400">
-          Precio: ${item.price * item.quantity}
+        <p className="text-gray-500 dark:text-gray-400 line-clamp-1">
+          Precio: ${(item.price * item.quantity).toFixed(2)}
         </p>
       </div>
       <QuantityControlButton item={item} mainItem={isMain} showRemove={true} />
