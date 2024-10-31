@@ -50,7 +50,7 @@ const Checkout = ({ mainProduct }: Props) => {
 const HeaderSection = () => (
   <div className="flex flex-row items-center justify-between mb-2 px-0 lg:px-4 pt-3 lg:pt-4">
     <SectionTitle>Carrito</SectionTitle>
-    <FaCartShopping className="text-3xl mx-2 text-gray-700 dark:text-gray-100" />
+    <FaCartShopping className="text-3xl  text-gray-700 dark:text-gray-100" />
   </div>
 );
 

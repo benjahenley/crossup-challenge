@@ -7,11 +7,11 @@ type Props = {
 };
 
 const CartItemRow = ({ item, isMain }: Props) => (
-  <div className="relative flex justify-between items-center my-2 pr-4 group">
-    <div className="flex gap-4 w-full justify-between">
+  <div className="group relative flex justify-between items-center my-2 pr-2 lg:pr-0 group">
+    <div className="flex gap-4 w-full justify-between items-center">
       <div>
-        <h4 className="font-semibold text-gray-800 dark:text-gray-100">
-          {item.name}{" "}
+        <h4 className="font-semibold group-hover:font-bold text-gray-800 dark:text-gray-100">
+          {item.name}&nbsp;
           <span className="whitespace-nowrap">x&nbsp;{item.quantity}</span>
         </h4>
         <p className="text-gray-500 dark:text-gray-400 line-clamp-1">

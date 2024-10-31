@@ -24,7 +24,7 @@ export const QuantityControlButton = React.memo(function QuantityControlButton({
   return (
     <div
       className={`${
-        showRemove && "lg:hidden group-hover:flex"
+        showRemove && "lg:hidden group-hover:flex h-fit"
       } flex items-center gap-2 justify-between`}>
       <button
         onClick={() =>
@@ -32,14 +32,14 @@ export const QuantityControlButton = React.memo(function QuantityControlButton({
         }
         disabled={isSubtractDisabled}
         className={`py-0 ${isSubtractDisabled ? "cursor-not-allowed" : ""}`}>
-        <FaSquareMinus className="text-2xl icon-hover-primary" />
+        <FaSquareMinus className="text-2xl icon-hover-primary  w-[20px] h-[20px] lg:w-[23px] lg:h-[23px]" />
       </button>
       <button
         onClick={() =>
           dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))
         }
-        className="py-0">
-        <FaSquarePlus className="text-2xl icon-hover-primary" />
+        className="py-0 ">
+        <FaSquarePlus className="text-2xl icon-hover-primary  w-[20px] h-[20px] lg:w-[23px] lg:h-[23px]" />
       </button>
       {showRemove && (
         <button
@@ -48,7 +48,7 @@ export const QuantityControlButton = React.memo(function QuantityControlButton({
           className={`text-red-500 dark:text-red-400 ${
             mainItem ? "cursor-not-allowed" : ""
           }`}>
-          <FaRegTrashAlt className="hover:scale-110 text-xl" />
+          <FaRegTrashAlt className="hover:scale-110 text-lg lg:text-xl" />
         </button>
       )}
     </div>
