@@ -31,7 +31,7 @@ const Checkout = ({ mainProduct }: Props) => {
       <HeaderSection />
       <LineSeparator className="mx-0 md:mx-3" />
 
-      <div className="h-full max-h-[300px] md:h-[180px] overflow-scroll scrollbar-visible lg:px-4">
+      <div className="h-full max-h-[300px] md:h-[180px] overflow-auto lg:px-4">
         {cartItems.map((item) => (
           <CartItemRow
             key={item.id}

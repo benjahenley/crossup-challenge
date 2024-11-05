@@ -77,7 +77,7 @@ const CartPopup: React.FC = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}>
             <div
               ref={popupRef}
-              className="bg-white dark:bg-gray-900 text-black dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full h-full md:h-fit relative overflow-y-scroll">
+              className="bg-white dark:bg-gray-900 text-black dark:text-gray-200 rounded-xl shadow-lg max-w-4xl w-full h-full md:h-fit relative overflow-y-auto">
               <button
                 onClick={() => dispatch(closePopup())}
                 className="absolute top-4 right-5   dark:text-gray-600 md:icon-hover-primary">
